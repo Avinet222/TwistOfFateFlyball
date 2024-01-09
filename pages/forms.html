@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="../scripts/functions.js"></script>
+  <link rel="stylesheet" href="../styles/reset.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="../scripts/forms.js"></script>
+  <title>forms</title>
+  <style>
+    /* Style for tabs */
+
+    #tabs {
+      display: flex;
+      justify-content: start;
+    }
+
+    .tab {
+      margin-right: 5px;
+    }
+
+    .tab.active {
+      background-color: #fff;
+      border-bottom: 1px solid #fff;
+    }
+
+    .disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    input[type="button"].active {
+      opacity: 1;
+      cursor: pointer;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      /* Adjust width as needed */
+      margin: 0 auto;
+      /* Center the form */
+    }
+
+    .container label {
+      margin-bottom: 5px;
+    }
+
+    input[type="button"],
+    input[type="submit"],
+    button {
+      text-align: center;
+    }
+
+    .container input[type="text"],
+    .container input[type="email"],
+    .container input[type="button"],
+    .container input[type="date"],
+    .container select {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .container input[type="number"] {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: left;
+      /* Align the number input content to the left */
+    }
+
+    .custom-select {
+      position: relative;
+      width: 100%;
+    }
+
+    fieldset {
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      background-color: #00000008;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+
+    img {
+      max-height: 100px;
+      width: auto;
+    }
+
+    /* General table styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+    }
+
+    th {
+      font-weight: bold;
+    }
+
+    td {
+      border: 1px solid #ccc;
+    }
+
+    /* Responsive styles */
+
+    /* For smaller screens */
+    @media (max-width: 767px) {
+      table {
+        width: 100%;
+      }
+
+      th,
+      td {
+        font-size: 12px;
+        /* Example: Reduce font size for smaller screens */
+        padding: 5px;
+        /* Adjust padding */
+      }
+    }
+
+    /* For medium-sized screens */
+    @media (min-width: 768px) and (max-width: 991px) {
+      table {
+        width: 100%;
+      }
+
+      th,
+      td {
+        font-size: 14px;
+        /* Example: Slightly larger font for medium screens */
+        /* Additional styles if needed */
+      }
+    }
+
+    /* For larger screens */
+    @media (min-width: 992px) {
+      /* Keep table styles for larger screens or add more specific styles */
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../pages/home.html">Home</a></li>
+        <li><a href="../pages/contact-us.html" id="contactButton">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+
+    <div id="tabs">
+      <div id="tab_formOverview" class="tab disabled" data-form="formOverview" onclick="showForm('formOverview')">
+        Overview</div>
+      <div id="tab_formCompetitor" class="tab disabled" data-form="formCompetitor" onclick="showForm('formCompetitor')">
+        Competitor</div>
+      <div id="tab_formDog" class="tab disabled" data-form="formDog" onclick="showForm('formDog')">Dog</div>
+      <div id="tab_formTrial" class="tab disabled" data-form="formTrial" onclick="showForm('formTrial')">Trial</div>
+      <div id="tab_formAgreement" class="tab disabled" data-form="formAgreement" onclick="showForm('formAgreement')">
+        Agreement</div>
+      <div id="tab_completed" class="tab disabled" data-form="completed" onclick="showForm('completed')">Completed</div>
+    </div>
+
+    <div id="formOverview" class="form">
+      <div class="box">
+        <div class="title">
+          <img src="../images/RATS_Logo.jpg" alt="Rats logo">
+          <h1>RATS! Canada and Twist of Fate are pleased to invite you to FOUR Sanctioned RATS! Canada Trials!</h1>
+          <img src="../images/TOF_Logo.jpeg" alt="TOF logo">
+        </div>
+        <p><b>When:</b> Saturday and Sunday, February 24-25, 2024<br><b>Where: </b><a
+            href="https://maps.app.goo.gl/WbJwRewp187fribD9" target="_blank">Sarsfield Community Centre, 585
+            Sarsfield Rd, Sarsfield, ON K0A 3E0</a></p>
+
+        <p>Registration opens <b>February 6th</b> / Closing date: <b>Febuary 19th</b> or when the trial is full.</p>
+
+        <p><b>Payment</b> is due by e-transfer as soon as you register and will not be complete until full amount is
+          received.
+          We also reserve the right to cancel your registration if payment is not received upon registration.
+          <br><b>Send
+            payment to twistoffateflyball@gmail.com<br>Password: Rats123</b>
+        </p>
+
+        <p>If you do not have a RATS! Canada Dog ID, one is required prior to registration. Information on how to
+          receive your Dog ID <a href="https://www.ratscanadadogsports.com/register.html" target="_blank">RATS! Canada
+            Dog ID</a></p>
+
+        <p><b>DAILY SCHEDULE</b><br> Morning: Barn & Brush Novice 1&2, Advanced 1&2 <br> Mid-Day: Team Relay <br>
+          Afternoon:
+          Barn & Brush Master 1&2, Champion 1&2</p>
+
+        <p><b>Entry fees:</b> $27/run Barn and Brush <br> $16/run Team Relay <br> *up to 5 runs per dog per day*</p>
+
+        <p><b>Judge:</b> Anita Vinette with <b>Backup judge:</b> Manon Brisebois</p>
+
+        <p>This event will be a no frill. Sorry everyone, no spot prizes or gift bags. But stay tuned, we may be hosting
+          more full frills events in the near future.</p>
+        <p><b>Contact Information for Trial:</b> Trial Organizer: Anita Vinette with secretary The
+          wonderful crew of Twist of Fate Flyball. <a href="../pages/contact-us.html" target="_blank">Contact us here for
+            more information</a></p>
+        <p>Trial Information bearing number 23-042-RC These sanctioned trials are held under RATS! Canada rules and
+          regulations and the stated above event is recognized and approved by RATS! Canada. Rules and regulations are
+          available on the <a href="https://www.ratscanadadogsports.com/rules.html" target="_blank">RATS! Canada
+            Website</a>.</p>
+
+        <button id="nextButtonDescription" onclick="nextForm('formCompetitor')">Next</button>
+      </div>
+    </div>
+
+    <div id="formCompetitor" class="form">
+      <div class="box">
+        <div class="container">
+          <fieldset>
+            <legend>Search</legend>
+            <label for="search">First name: </label>
+            <input type="text" id="searchFirstName" size="20" oninput="this.value = capitalize(this.value)" required>
+            <label for="search">Last name: </label>
+            <input type="text" id="searchLastName" size="20" oninput="this.value = capitalize(this.value)" required>
+            <input type="button" id="searchButton" onclick="findCompetitor()" value="Next">
+          </fieldset>
+
+          <form id='entryCompetitor' onSubmit='return addData(this)' name="competitors" style="display: none;">
+            <fieldset>
+              <legend>Competitor Details</legend>
+              <input id="competitiorsID" type="hidden" name="id" value="0">
+              <input id="competitorsFirstName" type="hidden" name="firstname" value="0">
+              <input id="competitorsLastName" type="hidden" name="lastname" value="0">
+
+              <label for="email">Email: </label>
+              <input type="email" name="email" placeholder="name@email.ca" required><br>
+
+              <label for="phone">Phone: </label>
+              <input type="text" name="phone" oninput="this.value = phoneFormat(this.value)" maxlength="11"
+                placeholder="(111) 111-1111" required><br>
+
+              <label for="address">Address 1: </label>
+              <input type="text" name="address1" placeholder="123 Main St" required><br>
+
+              <label for="address">Address 2: </label>
+              <input type="text" name="address2" placeholder="Apt 12" value=""><br>
+
+              <label for="city">City: </label>
+              <input type="text" name="city" oninput="this.value = capitalize(this.value)" required><br>
+
+              <label for="province">Province: </label>
+              <div class="custom-select">
+                <select name="province" id="title" required>
+                  <option value="AB">Alberta</option>
+                  <option value="BC">British Columbia</option>
+                  <option value="MB">Manitoba</option>
+                  <option value="NB">New Brunswick</option>
+                  <option value="NL">Newfoundland and Labrador</option>
+                  <option value="NS">Nova Scotia</option>
+                  <option value="ON" selected="selected">Ontario</option>
+                  <option value="PE">Prince Edward Island</option>
+                  <option value="QC">Quebec</option>
+                  <option value="SK">Saskatchewan</option>
+                  <option value="NT">Northwest Territories</option>
+                  <option value="NU">Nunavut</option>
+                  <option value="YT">Yukon</option>
+                </select>
+                <div class="select-arrow"></div>
+              </div><br>
+              <label for="postalcode">Postal Code: </label>
+              <input type="text" name="postalcode" oninput="this.value = postalCodeFormat(this.value)" maxlength="7"
+                placeholder="M1M 1M1" required><br>
+
+              <input type="text" name="comments" value="" hidden>
+
+              <input type='button' value='Next' onclick='addData(this.form)'>
+            </fieldset>
+          </form>
+
+          <form id='entryEmergency' onSubmit='return addData(this)' name="emergency" style="display: none;">
+            <fieldset>
+              <legend>Emergency Contact</legend>
+              <input type="text" name="id" value="0" hidden>
+              <input id="emergencyCompetitorsID" type="hidden" name="competitors_id" value="0">
+
+              <label for="name">First Name: </label>
+              <input type="text" name="firstname" value="" oninput="this.value = capitalize(this.value)" required><br>
+
+              <label for="name">Last Name: </label>
+              <input type="text" name="lastname" value="" oninput="this.value = capitalize(this.value)" required><br>
+
+              <label for="email">Phone Number: </label>
+              <input type="text" name="phone" oninput="this.value = phoneFormat(this.value)" maxlength="11" required>
+
+              <input type='button' value='Next' onclick='addData(this.form)'>
+            </fieldset>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div id="formDog" class="form" name="dogs">
+      <div class="box">
+        <div class="container">
+          <fieldset>
+            <legend>Select Dog</legend>
+            <div class="custom-select">
+              <select id="searchDog" name="searchDog" onchange="findDog(this)" required>
+                <option value="newDog">Add Dog</option>
+              </select>
+              <div class="select-arrow"></div>
+            </div>
+          </fieldset>
+
+
+          <form id='entryDog' onSubmit='return updateData(this)' name="dogs">
+            <fieldset>
+              <legend>Dog Details</legend>
+
+              <input id="dogsID" type="hidden" name="id" value="0">
+
+              <label for="ratsid">Rats ID: </label>
+              <input type="text" name="ratsid" placeholder="11-111-AA"><br>
+
+              <input id="dogsCompetitorsID" type="hidden" name="competitors_id">
+
+              <label for="name">Call Name: </label>
+              <input type="text" name="name" value="" oninput="this.value = capitalize(this.value)" required><br>
+
+              <label for="breed">Breed: </label>
+              <input type="text" name="breed" oninput="this.value = capitalize(this.value)" required><br>
+
+              <label for="sex">Sex: </label>
+              <select name="sex" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+              </select><br>
+
+              <label for="inseason">In Season: </label>
+              <select name="inseason">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select><br>
+
+              <label for="dateofbirth">Date of Birth: </label>
+              <input type="date" name="dateofbirth" required><br>
+
+
+
+              <label for="breedgroup">Breed Group: </label>
+              <div class="custom-select">
+                <select name="breedgroup" required>
+                  <option value="1">Group 1 - Sporting Dogs</option>
+                  <option value="2">Group 2 - Hounds</option>
+                  <option value="3">Group 3 - Working Dogs</option>
+                  <option value="4">Group 4 - Terriers</option>
+                  <option value="5">Group 5 - Toys</option>
+                  <option value="6">Group 6 - Non-sporting Dogs</option>
+                  <option value="7">Group 7 - Herding Dogs</option>
+                </select>
+                <div class="select-arrow"></div>
+              </div><br>
+
+              <label for="BAR_level">Barn Ratting Level: </label>
+              <div class="custom-select">
+                <select name="BAR_level" required>
+                  <option value="N/A">N/A - Not Registered</option>
+                  <option value="novice">Novice</option>
+                  <option value="advanced">Advanced</option>
+                  <option value="master">Master</option>
+                  <option value="champion">Champion</option>
+                  <option value="grand_champion">Grand Champion</option>
+                </select>
+                <div class="select-arrow"></div>
+              </div><br>
+
+              <label for="BAR_q">Barn Qs: </label>
+              <input type="number" min="0" name="BAR_q" value="0" size="3" required><br>
+
+              <label for="BRH_level">Brush Hunting Level: </label>
+              <div class="custom-select">
+                <select name="BRH_level" required>
+                  <option value="N/A">N/A - Not Registered</option>
+                  <option value="novice">Novice</option>
+                  <option value="advanced">Advanced</option>
+                  <option value="master">Master</option>
+                  <option value="champion">Champion</option>
+                  <option value="grand_champion">Grand Champion</option>
+                </select>
+                <div class="select-arrow"></div>
+              </div><br>
+
+              <label for="BRH_q">Brush Qs: </label>
+              <input type="number" min="0" name="BRH_q" value="0" size="3" required><br>
+
+              <label for="TR_level">Team Relay Level: </label>
+              <div class="custom-select">
+                <select name="TR_level" required>
+                  <option value="N/A">N/A - Not Registered</option>
+                  <option value="novice">Novice</option>
+                  <option value="advanced">Advanced</option>
+                  <option value="master">Master</option>
+                  <option value="champion">Champion</option>
+                  <option value="grand_champion">Grand Champion</option>
+                </select>
+                <div class="select-arrow"></div>
+              </div><br>
+
+              <label for="TR_q">Team Relay Qs: </label>
+              <input type="number" min="0" name="TR_q" value="0" size="3" required><br>
+
+              <!--<label for="TL_level">Trailing and Locating Level: </label>
+              <div class="custom-select">-->
+              <select name="TL_level" hidden>
+                <option value="N/A">N/A - Not Registered</option>
+                <option value="novice">Novice</option>
+                <option value="advanced">Advanced</option>
+                <option value="master">Master</option>
+                <option value="champion">Champion</option>
+                <option value="grand_champion">Grand Champion</option>
+              </select>
+              <!-- <div class="select-arrow"></div>
+              </div>-->
+
+              <!--<label for="TL_q">Trailing and Locating Qs: </label>-->
+              <input type="number" min="0" name="TL_q" value="0" size="3" hidden>
+
+              <input type="text" name="comments" value="" hidden>
+              <input type='button' id='dogAddDataButton' value='Submit' onclick='addData(this.form)'
+                style="display: block;">
+              <input type='button' id='dogUpdateDataButton' value='Next' onclick='updateData(this.form)'
+                style="display: none;">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="formTrial" class="form">
+      <div class="box">
+        <div id="trialTable"></div>
+        <button id="nextButtonTrial" class="disabled" onclick="nextForm('formAgreement')">Next</button>
+      </div>
+    </div>
+
+    <div id="formAgreement" class="form">
+      <div class="box">
+        <div>
+          <h1>Agreements</h1>
+          <input type="checkbox" id="agreement" name="agreement" class="agreementCheck"><label for="agreement"
+            class="checkbox"></label><span>
+            BY CHECKING THIS BOX: I the undersigned, certify that I am the actual owner of
+            the dog, or that I am the duly authorized agent of the actual owner whose name I have entered above. In
+            consideration of the acceptance of this entry, I (we) agree to abide by the rules and regulations of RATS!
+            Canada in effect at the time of this event, and by any additional rules and regulations appearing in the
+            premium list for this event, and further agree to be bound by the liability waiver below. I (we) certify and
+            represent that the dog entered is not a hazard (dog or human aggressive) to persons or other dogs. This
+            entry
+            is submitted for acceptance on the foregoing representation and agreement. I (we) agree to conduct myself
+            (ourselves) in accordance with all RATS! Canada Rules and Regulations and to abide by any decisions made in
+            accord with them.</span>
+        </div><br />&nbsp;<br />
+        <div>
+          <h1>Waiver and Indemnity Agreement</h1>
+          <input type="checkbox" id="waiver" name="waiver" class="agreementCheck"><label for="waiver"
+            class="checkbox"></label><span> BY
+            CHECKING THIS BOX, I the undersigned agree that: In consideration of the acceptance of this entry, I (we)
+            agree to abide by the rules and regulations of RATS! Canada in effect at the time of this entry, and by any
+            additional rules and regulations appearing in the premium list for this event, and further agree to be bound
+            by this liability waiver. I (we) are required to sign a waiver and indemnity releasing all members of the
+            Twist of Fate Flyball team from any liability whatsoever in respect of any damage or injury which you, your
+            dog or your possessions may suffer. I (we) agree to hold RATS! Canada, the event giving company, their
+            directors, governors, officers, agents or event secretary and the owner of the premises and any provider of
+            services that are necessary to hold this event and any employees or volunteers of the aforementioned
+            parties,
+            and any RATS! Canada approved judge, judging at this event, harmless from any claim for loss or injury which
+            may be alleged to have been caused directly or indirectly to any person or thing by the act of this dog
+            while
+            in or about the event premises or grounds or near any entrance thereto, and I (we) personally assume all
+            responsibility and liability for any such claim and I (we) further agree to hold the aforementioned parties
+            harmless from any claim for loss, injury or damage to this dog. Additionally, I (we) hereby assume the sole
+            responsibility for and agree to indemnify, defend and save the aforementioned parties harmless from any and
+            all loss and expense (including legal fees) by reason of the liability imposed by law upon any of the
+            aforementioned parties for damage because of bodily injuries, including death, at any time resulting there
+            from, sustained by any person or persons, including myself (ourselves), or on account of damage to property,
+            arising out of or in consequence of my (our) participation in this event, however such, injuries, death or
+            property damage may be caused, and whether or not the same may be caused or may be alleged to have been
+            caused
+            by the negligence of the aforementioned parties or any of their employees, agents, or any persons. By
+            selecting this box, I indicate my agreement with the above Liability Waiver I realize and hereby acknowledge
+            that all members of Twist of Fate Flyball, all Volunteers and RATS! Canada can accept no responsibility
+            whatsoever for the conduct or actions of other persons or their dogs, who may be participating in events, or
+            other factors beyond their control. Accordingly as a condition of the participation of myself, my dog and
+            any
+            other persons with whom I associate in the events, I hereby release all members of Twist of Fate Flyball,
+            all
+            Volunteers and RATS! Canada from any or all claims, damages, or injuries which they may suffer or incur,
+            whether directly or indirectly, including any liability for damages suffered by others as a result of any
+            conduct or action of myself or my dog.</span>
+        </div><br />&nbsp;<br />
+        <div>
+          <h1>Signature</h1>
+          <input type="checkbox" id="signature" name="signature" class="agreementCheck"><label for="signature"
+            class="checkbox"></label><span>
+            By submitting this registration form I acknowledge that I understand and consent to all stated above and
+            consider this submission as my formal signature.</span>
+        </div><br />&nbsp;<br />
+        <button id="agreementButton" class="disabled" onclick="submit()">Submit</button>
+      </div>
+    </div>
+
+    <div id="completed" class="form">
+      <div class="box">
+        <h1>Thank you for your registration</h1>
+        <br />&nbsp;<br />
+        <p>You will receive a confirmation email shortly. Please <a href="../index.html">Contact Us</a> if you have any
+          questions.</p>
+        <br />&nbsp;<br />
+        <div><button onclick="window.location.href='forms.html'">Another Dog</button></div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <script src="../scripts/reusable.js"></script>
+    <div id="footerContent"></div>
+  </footer>
+
+</body>
+
+</html>

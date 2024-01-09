@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="../scripts/functions.js"></script>
+  <link rel="stylesheet" href="../styles/reset.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <script>
+
+    function loadForms() {
+      const daycount = document.getElementById('daycount').value;
+      const form = document.getElementById('entryForm');
+      let html = "";
+
+      Promise.all([
+        sendQuery("SHOW COLUMNS FROM competitions"),
+        sendQuery("SHOW COLUMNS FROM day"),
+      ])
+        .then(function (responses) {
+          responses.forEach(function (jsonResponse, index) {
+            const tableName = ['competitions', 'day'][index];
+            if (tableName === 'day') {
+              for (let i = 0; i < daycount; i++) {
+                const dayFieldsetId = 'day_' + (i + 1);
+                html += "<fieldset id='" + dayFieldsetId + "'> <legend> Day " + (i + 1) + "</legend>";
+                jsonResponse.result.forEach(function (rowData) {
+                  if (rowData.Field === "id" || rowData.Field === 'competitions_id') {
+                    html += "<input type='text' name='" + tableName + i + "." + rowData.Field + "' value='0' hidden>";
+                  } else {
+                    html += "<label>" + rowData.Field + "</label><br><input type='text' name='" + tableName + i + "." + rowData.Field + "'><br>";
+                  }
+                });
+                html += "</fieldset>";
+              }
+            } else {
+              // Create fieldset for competitions here
+              html += "<fieldset id='competitions'> <legend>" + tableName.charAt(0).toUpperCase() + tableName.slice(1) + "</legend>";
+              jsonResponse.result.forEach(function (rowData) {
+                if (rowData.Field === "id" || rowData.Field === 'competitions_id') {
+                  html += "<input type='text' name='" + tableName + "." + rowData.Field + "' value='0' hidden>";
+                } else {
+                  html += "<label>" + rowData.Field + "</label><br><input type='text' name='" + tableName + "." + rowData.Field + "'><br>";
+                }
+              });
+              html += "</fieldset>";
+            }
+          });
+
+          html += "<input type='button' value='Create' onclick='createDay(this.form)'><br>";
+          form.innerHTML = html;
+          form.style.display = "block";
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    };
+
+    // Inside the updateData function
+
+    function createDay(form) {
+      const formData = new FormData(form);
+      const dayCount = document.getElementById('daycount').value;
+      console.log(dayCount);
+      let competitionId = 0;
+
+      sendQuery("SELECT id FROM competitions ORDER BY id DESC LIMIT 1")
+        .then(function (jsonResponse) {
+          competitionId = parseInt(jsonResponse.result[0].id) + 1;
+          const queries = [];
+          let columns = [], values = [];
+          let oldKey = "", columnsString = "", valuesString = "", query = "";
+
+          formData.forEach(function (value, key) {
+
+            if(oldKey !== "" && oldKey !== key.split('.')[0]){
+              columnsString = columns.join(', ');
+              valuesString = values.join(', ');
+              if (oldKey.includes("day")) {
+                query = `INSERT INTO day (${columnsString}) VALUES (${valuesString})`;
+              } else {
+                query = `INSERT INTO `+oldKey+` (${columnsString}) VALUES (${valuesString})`;
+              }
+              console.log(query);
+              queries.push(sendQuery(query));
+              columns = [];
+              values = [];
+            }
+            columns.push(key.split('.')[1]);
+            if(key.split('.')[1].includes("competitions_id") || key === "competitions.id"){
+              values.push(`'${competitionId}'`);
+            } else {
+              values.push(`'${value}'`);
+            }
+
+            oldKey = key.split('.')[0];
+          });
+          
+          columnsString = columns.join(', ');
+          valuesString = values.join(', ');
+          if (oldKey.includes("day")) {
+                query = `INSERT INTO day (${columnsString}) VALUES (${valuesString})`;
+              } else {
+                query = `INSERT INTO `+oldKey+` (${columnsString}) VALUES (${valuesString})`;
+              }
+          console.log(query);
+          queries.push(sendQuery(query));
+
+          console.log(queries);
+
+          Promise.all(queries)
+            .then(function () {
+              window.location.href = "../pages/admin_dashboard.html";
+            })
+            .catch(function (error) {
+              console.error("Error inserting data:", error);
+            });
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
+
+  </script>
+  <title>admin_newday</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+          <li><a href="../pages/home.html">Home</a></li>
+          <li><a href="../pages/admin_dashboard.html">Dashboard</a></li>
+          <li><a href="../scripts/logout.php">Logout</a></li>
+      </ul>
+  </nav>
+  </header>
+  <main>
+    <div>
+      <label for="daycount">How many days: </label>
+      <input type="number" id="daycount" name="daycount" min="1" size="5" value="1">
+      <button type="button" onclick="loadForms()">Create</button>
+    </div>
+
+    <form id="entryForm" onSubmit="return createDay(this)" display="none">
+    </form>
+
+
+  </main>
+  <footer>
+    <script src="../scripts/reusable.js"></script>
+    <div id="footerContent"></div>
+  </footer>
+
+</body>
+
+</html>

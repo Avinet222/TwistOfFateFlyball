@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="../scripts/functions.js"></script>
+  <script src="../scripts/scoreSheet.js"></script>
+  <link rel="stylesheet" href="../styles/reset.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/scoresheet.css">
+  <title>scorsheet</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../pages/home.html">Home</a></li>
+        <li><a href="../pages/admin_dashboard.html">Dashboard</a></li>
+        <li><a href="../scripts/logout.php">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div id="header">
+      <button id="back" onclick="goBack()">Back</button>
+      <button id="submit" onclick="submit()">Next</button>
+      <button id="print" onclick="printTable()">Print</button>
+    </div>
+    <div class="content" id="scoresheet">
+      <table>
+        <tr>
+          <td colspan="4">
+            <div><img src="../images/RATS_Logo_Name.jpg" alt="logo" width="300px" height="auto"></div>
+          </td>
+          <td colspan="4"><h1 id="game">GAME</h1></td>
+        </tr>
+        <tr>
+          <td colspan="4"><div class="fill"><label for="name" class="bold">Call Name: </label><input type="text" name="name" id="name"></div></td>
+          <td colspan="4" class="left-border"><div class="fill"><label for="ratsid" class="bold">RATS! Canada Dog ID # </label><input type="text" name="ratsid" id="ratsid" size="10"></div></td>
+        </tr>
+        <tr>
+          <td colspan="4"><div class="fill"><label for="fullname" class="bold">Handler: </label><input type="text" name="fullname" id="fullname" size="30"></div></td>
+          <td colspan="4" class="left-border">
+            <div class="fill">
+              <div class="bold">Breed group: </div>
+              <input type="checkbox" id="bg_1" name="bg_1"><label for="bg_1" class="custom-checkbox">1</label>
+              <input type="checkbox" id="bg_2" name="bg_2"><label for="bg_2" class="custom-checkbox">2</label>
+              <input type="checkbox" id="bg_3" name="bg_3"><label for="bg_3" class="custom-checkbox">3</label>
+              <input type="checkbox" id="bg_4" name="bg_4"><label for="bg_4" class="custom-checkbox">4</label>
+              <input type="checkbox" id="bg_5" name="bg_5"><label for="bg_5" class="custom-checkbox">5</label>
+              <input type="checkbox" id="bg_6" name="bg_6"><label for="bg_6" class="custom-checkbox">6</label>
+              <input type="checkbox" id="bg_7" name="bg_7"><label for="bg_7" class="custom-checkbox">7</label>
+            </div>
+        </tr>
+        <tr>
+          <td colspan="6">
+            <div class="fill">
+              <div class="bold">Dog is:</div>
+              <div><input type="checkbox" id="dog_puppy" name="dog_puppy"><label for="dog_puppy"
+                  class="checkbox"></label><span> Puppy</span></div>
+              <div><input type="checkbox" id="dog_bis" name="dog_bis"><label for="dog_bis"
+                  class="checkbox"></label><span> Bis</span></div>
+              <div><input type="checkbox" id="dog_physically" name="dog_physically"><label for="dog_physically"
+                  class="checkbox"></label><span> Physically challenged</span></div>
+              <div><input type="checkbox" id="dog_feo" name="dog_feo"><label for="dog_feo"
+                  class="checkbox"></label><span> Feo</span></div>
+            </div>
+          </td>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="6">
+            <div class="fill">
+              <div class="bold">Handler is:</div>
+              <div><input type="checkbox" id="person_owner" name="person_owner"><label for="person_owner"
+                  class="checkbox"></label><span> Owner</span></div>
+              <div><input type="checkbox" id="person_junior" name="person_junior"><label for="person_junior"
+                  class="checkbox"></label><span> Junior</span></div>
+              <div><input type="checkbox" id="person_handler" name="person_handler"><label for="person_handler"
+                  class="checkbox"></label><span> Handler</span></div>
+              <div><input type="checkbox" id="person_physically" name="person_physically"><label for="person_physically"
+                  class="checkbox"></label><span> Physically challenged</span></div>
+            </div>
+          </td>
+          <td colspan="2" class="left-border">
+            <div class="fill">
+            <label for="title" class="bold">Possible title:</label>
+            <div class="custom-select">
+              <select name="title" id="title" width="10px">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+              <div class="select-arrow"></div>
+            </div>
+          </div>
+            
+          </td>
+        </tr>
+        <tr style="background-color: rgba(154, 154, 154, 0.604);">
+          <td colspan="8">
+            <div class="fill">
+              <div><div class="bold">DATE: </div><input type="date" name="date" id="date"></div>
+              <div><div class="bold">LOCATION: </div><input type="text" name="location" id="location" size="33"></div>
+              <div><div class="bold">TRIAL: </div><input type="number" name="trial" id="trial" size="3" min="1" value="1"></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <div class="fill">
+              <label for="time" class="bold">Time: </label><input type="text" name="time" id="time">
+            </div>
+          </td>
+          <td colspan="4" class="center-text left-border remove-bottom-border"><div class="bold">Result (circle one)</div></td>
+        </tr>
+        <tr>
+          <td colspan="4" rowspan="2" class="text-top-left">
+            faultsTitle<br>
+            faultsRules
+          </td>
+          <td colspan="4" class="center-text left-border">
+            <div class="fill">
+              <input type="checkbox" id="result_q" name="result_q">
+              <label for="result_q" class="custom-checkbox">Q</label>
+              <input type="checkbox" id="result_nq" name="result_nq">
+              <label for="result_nq" class="custom-checkbox">NQ</label>
+              <input type="checkbox" id="result_e" name="result_e">
+              <label for="result_e" class="custom-checkbox">E</label>
+              <input type="checkbox" id="result_dq" name="result_dq">
+              <label for="result_dq" class="custom-checkbox">DQ</label>
+              <input type="checkbox" id="result_dnr" name="result_dnr">
+              <label for="result_dnr" class="custom-checkbox">DNR</label>
+              <input type="checkbox" id="result_dnf" name="result_dnf">
+              <label for="result_dnf" class="custom-checkbox">DNF</label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4" class="left-border"><div class="fill"><label for="ranking" class="bold">Ranking:</label><input type="number" name="ranking" id="ranking"></div></td>
+        </tr>
+        <tr>
+          <td colspan="4" class="bold"><div class="fill"><label for="totalTime" class="bold">Total time: </label> <input type="text" name="totalTime" id="totalTime"></div></td>
+          <td colspan="2" rowspan="2" class="left-border text-top-left"><div class="bold">TUBE POSITION:</div></td>
+          <td colspan="2" rowspan="2" class="left-border text-top-left"><div class="bold">JUDGE'S SIGNATURE:</div></td>
+        </tr>
+        <tr>
+          <td colspan="4" class="text-top-left">timeTitle<br>timeRules</td>
+        </tr>
+      </table>
+
+    </div>
+
+  </main>
+  <footer>
+    <script src="../scripts/reusable.js"></script>
+    <div id="footerContent"></div>
+  </footer>
+
+</body>
+
+</html>

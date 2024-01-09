@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../scripts/adminCheck.js"></script>
+    <script src="../scripts/functions.js"></script>
+    <script src="../scripts/contact-us.js"></script>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>home</title>
+    <style>
+        main {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .contact-form {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label,
+        input,
+        textarea,
+        button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../pages/home.html" id="homeButton">Home</a></li>
+                <li><a href="../pages/forms.html">Forms</a></li>
+                <li><a href="../pages/schedule.html">Schedule</a></li>
+                <li><a href="../pages/login.html" id="loginButton" style="display: none;">Admin</a></li>
+                <li><a href="../pages/admin_dashboard.html" id="dashboardButton" style="display: none;">Dashboard</a>
+                </li>
+                <li><a href="../scripts/logout.php" id="logoutButton" style="display: none;">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="box">
+            <h1>Contact Us Form</h1>
+            <br>
+            <form id="contactForm" method="post">
+                <label for="name">Full Name: <br></label>
+                <input type="text" name="name" id="name" placeholder="Your Name"><br>
+                <label for="email">Email: <br></label>
+                <input type="email" name="email" id="email" placeholder="Your Email"><br>
+                <label for="subject">Subject: </label>
+                <div class="custom-select">
+                    <select name="subject" id="subject">
+                        <option value="">Select Subject</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Form Submission">Form Submission</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <div class="select-arrow"></div><br>
+
+                </div>
+                <label for="message">Message: <br></label>
+                <textarea name="message" placeholder="Your Message" id="message"></textarea><br>
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </main>
+    <footer>
+        <script src="../scripts/reusable.js"></script>
+        <div id="footerContent"></div>
+    </footer>
+
+</body>
+
+</html>

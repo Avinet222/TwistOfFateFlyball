@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../scripts/functions.js"></script>
+    <script type="text/javascript" src="../scripts/adminResultEntry.js"></script>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        .popup{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popupContent{
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            max-width: 500px;
+            max-height: 550px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .hide{
+            display: none;
+        }
+
+        .show{
+            display: flex;
+            flex-direction: column;
+        }
+
+    </style>
+    <title>admin_resultEntry</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../pages/home.html">Home</a></li>
+                <li><a href="../pages/admin_dashboard.html">Dashboard</a></li>
+                <li><a href="../scripts/logout.php">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Result Entry</h1>
+        <button id="start" onclick="start()">Start</button>
+        <div id="resultTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>RATS! id</th>
+                        <th>Dog</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Game</th>
+                        <th>Level</th>
+                        <th>Trial</th>
+                        <th>Time</th>
+                        <th>Result</th>
+                        <th>Title</th>
+                        <th>Judge</th>
+                        <th>Dog Description</th>
+                        <th>Handler Description</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+        <div id="addPopup" class="hide popup">
+            <div class = "popupContent">
+                <form id="addForm">
+                    <input type="hidden" id="id" name="id" value="0">
+                    <input type="hidden" id="entry_id" name="entry_id" value="0">
+                    <label for="time">Time</label>
+                    <input type="text" id="time" name="time" required>
+                    <label for="result">Result</label>
+                    <input type="text" id="result" name="result" required>
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+                    <label for="judge">Judge</label>
+                    <input type="text" id="judge" name="judge" required>
+                    <label for="dogdesc">Dog Description</label>
+                    <input type="text" id="dogDescription" name="dogdesc" required>
+                    <label for="handlerdesc">Handler Description</label>
+                    <input type="text" id="handlerdesc" name="handlerdesc" required>
+                    <label for="comments">Comments</label>
+                    <input type="text" id="comments" name="comments">
+                </form>
+                <div style="display: flex; justify-content: space-between; width: 100%;">
+                    <button id="cancelButton" onclick="closePopup('addPopup')">Cancel</button>
+                    <button id="submitButton" onclick="submitForm(this.form)">Submit</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <script src="../scripts/reusable.js"></script>
+        <div id="footerContent"></div>
+    </footer>
+
+</body>
+
+</html>

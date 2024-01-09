@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../scripts/functions.js"></script>
+    <script type="text/javascript" src="../scripts/adminViewCompetition.js"></script>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        .opened {
+            background-color: #d75f09;
+        }
+        .closed {
+            background-color: #542432;
+        }
+    </style>
+    <title>admin_viewCompetition</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../pages/home.html">Home</a></li>
+                <li><a href="../pages/admin_dashboard.html">Dashboard</a></li>
+                <li><a href="../scripts/logout.php">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="competitionDetails"></div>
+        <div id="competitionNav">
+            <nav>
+                <ul>
+                    <li><button id="openRegistrations" class="opened" onclick="openRegistrations()">Close Entries</button></li>
+                    <li><button id="addEntry" onclick="addEntry()">Manually Add Entry</button></li>
+                    <li><button id="createSchedule" onclick="createSchedule()">Create Schedule</button></li>
+                    <li><button id="enterResults" onclick="enterResults()">Enter Results</button></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="entries"></div>
+        </div>
+    </main>
+    <footer>
+        <script src="../scripts/reusable.js"></script>
+        <div id="footerContent"></div>
+    </footer>
+
+</body>
+
+</html>

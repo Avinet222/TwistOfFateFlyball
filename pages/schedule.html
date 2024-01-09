@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="../scripts/adminCheck.js"></script>
+  <script src="../scripts/functions.js"></script>
+  <script src="../scripts/schedule.js"></script>
+  <link rel="stylesheet" href="../styles/reset.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <style>
+
+    /*#scheduleTable{
+      display: flex;
+      flex-direction: row;
+    }*/
+    .row{
+      display: flex;
+      flex-direction: row;
+    }
+
+    .row li{
+      padding-right: 10px;
+    }
+
+    h2 {
+      font-weight: bold;
+    }
+
+    li h3, h2{
+      padding-top: 5px;
+    }
+  </style>
+  <title>home</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+          <li><a href="../pages/home.html" id="homeButton">Home</a></li>
+          <li><a href="../pages/forms.html">Forms</a></li>
+          <li><a href="../pages/contact-us.html" id="contactButton">Contact Us</a></li>
+          <li><a href="../pages/login.html" id="loginButton" style="display: none;">Admin</a></li>
+          <li><a href="../pages/admin_dashboard.html" id="dashboardButton" style="display: none;">Dashboard</a></li>
+          <li><a href="../scripts/logout.php" id="logoutButton" style="display: none;">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div id="scheduleTable"></div>
+
+  </main>
+  <footer>
+    <script src="../scripts/reusable.js"></script>
+    <div id="footerContent"></div>
+  </footer>
+
+</body>
+
+</html>

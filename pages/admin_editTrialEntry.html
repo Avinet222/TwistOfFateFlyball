@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../scripts/functions.js"></script>
+    <script type="text/javascript" src="../scripts/adminEditTrialEntry.js"></script>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>admin_editCompetitor</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../pages/home.html">Home</a></li>
+                <li><a href="../pages/admin_dashboard.html">Dashboard</a></li>
+                <li><a href="../scripts/logout.php">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Edit Entry</h1>
+        <div id="entryForm">
+            <form id="entry">
+                <input type="hidden" name="id" value="0">
+                <input type="hidden" name="day_id" value="0">
+                <input type="hidden" name="dogs_id" value="0">
+                <label for="orderNumber">Order</label>
+                <input type="number" name="orderNumber" value="0">
+                <label for="game">Game</label>
+                <select name="game">
+                    <option value="BAR">Barn Ratting</option>
+                    <option value="BRH">Brush Hunting</option>
+                    <option value="TR">Team Relay</option>
+                </select>
+                <label for="level">Level</label>
+                <select name="level">
+                    <option value="novice">Novice</option>
+                    <option value="advanced">Advanced</option>
+                    <option value="master">Master</option>
+                    <option value="champion">Champion</option>
+                    <option value="grand_champion">Grand Champion</option>
+                </select>
+                <label for="dogs_ratsidteam">Teammate RatsID</label>
+                <input type="text" name="dogs_ratsidteam" value="">
+                <label for="trialnumber">Trial</label>
+                <input type="number" name="trialnumber" value="1">
+                <label for="price">Price</label><input type="number" name="price" value="14">
+                <div>
+                    <input type="checkbox" id="crating" name="crating"><label for="crating"
+                        class="checkbox"></label><span>Crating Inside</span>
+                </div>
+                <div>
+                    <input type="checkbox" id="receivedpayment" name="receivedpayment"><label for="receivedpayment"
+                        class="checkbox"></label><span>Received Payment</span>
+                </div>
+                <div>
+                    <input type="checkbox" id="deposited" name="deposited"><label for="deposited"
+                        class="checkbox"></label><span>Deposited Payment</span>
+                </div>
+                <input type="hidden" name="agreement" value="0">
+                <input type="hidden" name="waiver" value="0">
+                <input type="hidden" name="signature" value="0">
+                <input type="button" value="Edit" onclick="editEntry(this.form)">
+                <input type="button" value="Delete" onclick="deleteEntry()">
+            </form>
+        </div>
+    </main>
+    <footer>
+        <script src="../scripts/reusable.js"></script>
+        <div id="footerContent"></div>
+    </footer>
+
+</body>
+
+</html>
